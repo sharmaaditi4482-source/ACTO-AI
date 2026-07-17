@@ -278,8 +278,7 @@ export default function LandingPage() {
               whileHover={{ scale: 1.05, boxShadow: "0 0 25px rgba(20, 241, 217, 0.6)" }}
               whileTap={{ scale: 0.98 }}
               onClick={() => {
-                localStorage.setItem('acto_active_tab', 'feed');
-                navigate("/dashboard");
+                navigate("/login");
               }} 
               className="relative overflow-hidden px-6 py-2.5 bg-gradient-to-r from-[#7C5CFC] to-[#14F1D9] text-[#0A0A0F] font-bold rounded-full text-sm animate-pulse-glow"
             >
@@ -462,8 +461,7 @@ export default function LandingPage() {
             whileHover={{ scale: 1.05, boxShadow: "0 0 35px rgba(20, 241, 217, 0.7)" }}
             whileTap={{ scale: 0.97 }}
             onClick={() => {
-              localStorage.setItem('acto_active_tab', 'feed');
-              navigate("/dashboard");
+              navigate("/login");
             }} 
             className="relative overflow-hidden px-10 py-5 bg-gradient-to-r from-[#7C5CFC] to-[#14F1D9] text-[#0A0A0F] font-black rounded-full shadow-[0_0_25px_rgba(124,92,252,0.4)] text-lg tracking-wider"
           >
@@ -773,8 +771,7 @@ export default function LandingPage() {
                   <div className="mt-8 flex gap-4">
                     <button 
                       onClick={() => {
-                        localStorage.setItem('acto_active_tab', 'feed');
-                        navigate("/dashboard");
+                        navigate("/login");
                       }}
                       className="flex-1 py-4 bg-gradient-to-r from-[#7C5CFC] to-[#14F1D9] text-[#0A0A0F] font-bold rounded-xl hover:scale-[1.02] transition-transform flex items-center justify-center gap-2"
                     >
@@ -823,8 +820,7 @@ export default function LandingPage() {
             whileHover={{ scale: 1.05, boxShadow: "0 0 45px rgba(20, 241, 217, 0.8)" }}
             whileTap={{ scale: 0.97 }}
             onClick={() => {
-              localStorage.setItem('acto_active_tab', 'feed');
-              navigate("/dashboard");
+              navigate("/login");
             }} 
             className="px-12 py-6 bg-gradient-to-r from-[#7C5CFC] to-[#14F1D9] text-[#0A0A0F] font-black rounded-full text-xl shadow-[0_0_35px_rgba(124,92,252,0.5)] tracking-wider"
           >
