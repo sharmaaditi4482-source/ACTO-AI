@@ -122,46 +122,6 @@ ACTO/
 └── package.json
 ```
 
----
-
-## 🚀 Running Locally
-
-### Prerequisites
-- Node.js v18+
-- A Google Cloud project with OAuth 2.0 credentials
-- A Gemini API key from [Google AI Studio](https://aistudio.google.com)
-
-### 1. Clone the repository
-```bash
-git clone https://github.com/sharmaaditi4482-source/ACTO-AI.git
-cd ACTO-AI
-```
-
-### 2. Install dependencies
-```bash
-npm install
-```
-
-### 3. Set up environment variables
-```bash
-cp .env.example .env
-```
-
-Fill in your `.env`:
-```env
-GEMINI_API_KEY=your_gemini_api_key_here
-VITE_GOOGLE_CLIENT_ID=your_google_oauth_client_id.apps.googleusercontent.com
-```
-
-### 4. Run the dev server
-```bash
-npm run dev
-```
-
-Open **http://localhost:3000** 🎉
-
----
-
 ## 🔑 Environment Variables
 
 | Variable | Required | Description |
