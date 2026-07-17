@@ -99,7 +99,7 @@ let userPreferences = {
 async function startServer() {
   const app = express();
   app.use(express.json());
-  const PORT = 3000;
+  const PORT = parseInt(process.env.PORT || '3000', 10);
 
   // Health check
   app.get("/api/health", async (req, res) => {
