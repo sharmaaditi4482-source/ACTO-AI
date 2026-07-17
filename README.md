@@ -165,13 +165,7 @@ npm start
 **Aditi Sharma**  
 [![GitHub](https://img.shields.io/badge/GitHub-sharmaaditi4482--source-181717?style=flat-square&logo=github)](https://github.com/sharmaaditi4482-source)
 
----
-
-## 📄 License
-
-Licensed under the **Apache 2.0 License**. See [LICENSE](LICENSE) for details.
-
----
+Live demo link-(https://acto-ai.onrender.com/)
 
 <div align="center">
 
