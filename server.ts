@@ -235,7 +235,7 @@ async function startServer() {
     if (hasApiKey) {
       try {
         const client = getGeminiClient();
-        
+
         let playbookPromptModifier = "";
         if (playbook === "negotiate") {
           playbookPromptModifier = "Draft a formal, highly diplomatic, or professional delay resolution/email extension request explaining the issue politely.";
@@ -765,7 +765,7 @@ async function startServer() {
   });
 
   // Vite middleware for development
-  const isProduction = process.env.NODE_ENV === "production" || __filename.endsWith('server.cjs') || __filename.includes('dist');
+  const isProduction = process.env.NODE_ENV === "production";
   if (!isProduction) {
     const vite = await createViteServer({
       server: { middlewareMode: true },
