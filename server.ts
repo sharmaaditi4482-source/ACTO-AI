@@ -7,6 +7,10 @@ import dotenv from "dotenv";
 
 dotenv.config();
 
+// Gemini model name. gemini-2.0-flash was retired on June 1, 2026.
+// You can override this from Render by adding an env variable: GEMINI_MODEL
+const GEMINI_MODEL = process.env.GEMINI_MODEL || "gemini-3.6-flash";
+
 // Lazy init Gemini client to avoid crashes if GEMINI_API_KEY is not defined yet.
 let aiClient: GoogleGenAI | null = null;
 
@@ -110,16 +114,17 @@ async function startServer() {
     try {
       const client = getGeminiClient();
       await client.models.generateContent({
-        model: "gemini-2.0-flash",
+        model: GEMINI_MODEL,
         contents: "test",
       });
-      res.json({ status: "ok", gemini: "active" });
+      res.json({ status: "ok", gemini: "active", model: GEMINI_MODEL });
     } catch (e: any) {
+      console.error("Gemini health check error:", e?.message);
       const msg = (e.message || "").toLowerCase();
       if (msg.includes("quota") || msg.includes("exhausted") || msg.includes("429")) {
         res.json({ status: "ok", gemini: "quota_exceeded" });
       } else {
-        res.json({ status: "ok", gemini: "error", error: e.message });
+        res.json({ status: "ok", gemini: "error", model: GEMINI_MODEL, error: e.message });
       }
     }
   });
@@ -277,7 +282,7 @@ async function startServer() {
         `;
 
         const response = await client.models.generateContent({
-          model: "gemini-2.0-flash",
+          model: GEMINI_MODEL,
           contents: prompt,
           config: {
             responseMimeType: "application/json",
@@ -322,6 +327,7 @@ async function startServer() {
         return res.json(newAction);
 
       } catch (error: any) {
+        console.error("Gemini error (suggest):", error?.message);
         console.warn("⚠️ [ACTO API Engine] Gemini API Quota Limit reached or Key offline. Activating dynamic local synthesis engine.");
         // Fallback gracefully below
       }
@@ -533,7 +539,7 @@ async function startServer() {
     try {
       const client = getGeminiClient();
       const response = await client.models.generateContent({
-        model: "gemini-2.0-flash",
+        model: GEMINI_MODEL,
         contents: `Analyze this deadline crisis and draft a solution: "${prompt}".
         Return JSON matching this schema:
         {
@@ -547,7 +553,8 @@ async function startServer() {
         }
       });
       res.json(JSON.parse(response.text!));
-    } catch (e) {
+    } catch (e: any) {
+      console.error("Gemini error (demo):", e?.message);
       res.json({
         draftSubject: "Re: Your Deadline Inquiry",
         draftBody: "I have analyzed your situation and suggest we immediately initiate contact to request an extension or align on deliverables. I am ready to dispatch this if you approve.",
@@ -627,7 +634,7 @@ async function startServer() {
         `;
 
         const response = await client.models.generateContent({
-          model: "gemini-2.0-flash",
+          model: GEMINI_MODEL,
           contents: prompt,
           config: {
             responseMimeType: "application/json",
@@ -664,7 +671,8 @@ async function startServer() {
         deadlines.push(newDl);
         return res.json({ success: true, deadline: newDl });
 
-      } catch (error) {
+      } catch (error: any) {
+        console.error("Gemini error (voice):", error?.message);
         console.warn("⚠️ [ACTO API Engine] Gemini API voice parsing error or quota exceeded. Activating local voice transcription parser.");
       }
     }
