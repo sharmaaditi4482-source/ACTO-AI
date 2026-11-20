@@ -32,7 +32,7 @@ Miss something? ACTO's **Recovery Mode** kicks in and builds you a 3-step auto-e
 | 📅 **Calendar Intelligence**        | Detects conflicts, reschedules meetings, syncs across Google Calendar               |
 | 🎙️ **Voice Commands**              | Speak your crisis, ACTO's agent handles the rest                                    |
 | 📊 **Analytics Dashboard**          | Deadlines met, time saved, recovery success rate — all tracked live                 |
-| 🧠 **Gemini 2.0 Flash Neural Engine** | AI-powered intent parsing and resolution with structured JSON output and confidence scoring |
+| 🧠 **Gemini 3.1 Flashlite Neural Engine** | AI-powered intent parsing and resolution with structured JSON output and confidence scoring |
 | 🛟 **Smart Fallback Mode**          | If the Gemini API key is missing or quota is exceeded, ACTO switches to a local simulated agent so the app keeps working |
 | 🌙 **Dark / Light Mode**            | Smooth theme transitions with system preference detection                           |
 | 🔌 **Google Workspace Integration** | Gmail, Calendar, and Tasks — all in one agentic loop                                |
